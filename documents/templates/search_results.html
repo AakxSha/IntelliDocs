@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Search Results</h1>
+<form method="get" action="/search/">
+    <input type="text" name="q" value="{{ query }}" placeholder="Search documents...">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for document in documents %}
+        <li><a href="{{ document.file.url }}">{{ document.file.name }}</a></li>
+    {% empty %}
+        <p>No results found for "{{ query }}"</p>
+    {% endfor %}
+</ul>
+{% endblock %}

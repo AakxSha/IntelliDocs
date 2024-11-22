@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Documents</title>
+</head>
+<body>
+    <h1>Uploaded Documents</h1>
+    <ul>
+        {% for document in documents %}
+            <li>
+                <a href="{{ document.file.url }}">{{ document.file.name }}</a> - Uploaded on {{ document.uploaded_at }}
+                <a href="{% url 'delete_document' document.id %}">Delete</a>
+
+            </li>
+        {% empty %}
+            <p>No documents uploaded yet.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+<!-- Existing content -->
+{% endblock %}
