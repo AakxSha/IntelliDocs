@@ -10,6 +10,31 @@
 </head>
 <body>
     <h1>Uploaded Documents</h1>
+    <form method="get" action="{% url 'search_documents' %}" class="mb-3">
+        <input type="text" name="query" placeholder="Search documents" value="{{ query }}" class="form-control">
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
+    
+    {% for document in page_obj %}
+    <tr>
+        <td>{{ document.file.name }}</td>
+        <td>{{ document.uploaded_at }}</td>
+        <td><a href="{{ document.file.url }}" target="_blank">View</a></td>
+    </tr>
+{% endfor %}
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+    {% endif %}
+</div>
+
     <ul>
         {% for document in documents %}
             <li>

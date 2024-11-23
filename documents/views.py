@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
+from django.contrib import messages
 
 def home(request):
     return render(request, 'home.html')
@@ -11,15 +12,19 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 
+
+
 def upload_document(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponse("File uploaded successfully!")
+            messages.success(request, "File uploaded successfully!")
+            return redirect('list_documents')
     else:
         form = DocumentForm()
     return render(request, 'upload.html', {'form': form})
+
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
@@ -38,9 +43,9 @@ def list_documents(request):
     return render(request, 'list_documents.html', {'documents': documents})
 
 def search_documents(request):
-    query = request.GET.get('q', '')
+    query = request.GET.get('query', '')
     documents = Document.objects.filter(file__icontains=query)
-    return render(request, 'search_results.html', {'documents': documents, 'query': query})
+    return render(request, 'list_documents.html', {'documents': documents, 'query': query})
 
 from django.shortcuts import get_object_or_404, redirect
 
@@ -64,6 +69,24 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+def custom_logout(request):
+    logout(request)
+    return redirect('home')
+
+
+from django.core.paginator import Paginator
+
+def document_list(request):
+    documents = Document.objects.all()
+    paginator = Paginator(documents, 10)  # 10 documents per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'document_list.html', {'page_obj': page_obj})
+
 
 
 
