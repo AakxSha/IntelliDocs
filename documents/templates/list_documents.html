@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uploaded Documents</title>
+    <link rel="stylesheet" href="{% static 'css/list_documents.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 <body>
     <h1>Uploaded Documents</h1>

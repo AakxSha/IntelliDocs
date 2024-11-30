@@ -1,0 +1,97 @@
+/* upload.css */
+
+/* General Page Styling */
+body {
+    background-color: #f4f7fa; /* Light background to keep the theme consistent */
+    color: #333; /* Dark text color for readability */
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+}
+
+/* Header Styling */
+h1 {
+    color: #2c3e50; /* Dark color for the title */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields Styling */
+form input[type="text"],
+form input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9; /* Light background for the inputs */
+}
+
+form input[type="file"] {
+    padding: 10px 12px; /* Slightly different padding for file input */
+}
+
+/* Submit Button Styling */
+form button {
+    padding: 12px 20px;
+    background-color: #3498db; /* Blue color for consistency */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Success/Error Messages */
+.alert {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.alert-success {
+    background-color: #2ecc71; /* Green color for success */
+    color: white;
+}
+
+.alert-error {
+    background-color: #e74c3c; /* Red color for error */
+    color: white;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+
+    form input[type="text"],
+    form input[type="file"] {
+        font-size: 0.9rem;
+    }
+
+    form button {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+}

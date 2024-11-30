@@ -1,0 +1,122 @@
+/* Global Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #f5f5f5; /* Light grey text to ensure visibility */
+    background-color: #1a1a1a; /* Dark background for better contrast */
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #ecf0f1;
+    text-decoration: underline;
+}
+
+/* Main Content Area */
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #2d3436; /* Dark background for the content area */
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    color: #ecf0f1; /* Light text for headers */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    background-color: #34495e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+form input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #83aac4;
+    border-radius: 5px;
+    background-color: #ecf0f1; /* Light background for input fields */
+    color: #2c3e50; /* Dark text for readability */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+}
+
+form button {
+    background-color: #3498db;
+    color: #f5f0f0;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+p {
+    text-align: center;
+    color: #b0b0b0;
+    margin-top: 20px;
+}
+
+p a {
+    color: #3498db;
+}
+
+p a:hover {
+    color: #ecf0f1;
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        padding: 25px;
+    }
+
+    form button {
+        width: 100%;
+    }
+}

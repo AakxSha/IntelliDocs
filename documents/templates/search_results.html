@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 <h1>Search Results</h1>
 <form method="get" action="/search/">
     <input type="text" name="q" value="{{ query }}" placeholder="Search documents...">
     <button type="submit">Search</button>
+    <link rel="stylesheet" href="{% static 'css/search_result.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </form>
 <ul>
     {% for document in documents %}
